@@ -25,6 +25,13 @@ class DriverFactory:
             options.add_argument("--no-sandbox")
             options.add_argument("--disable-dev-shm-usage")
             
+            # Chrome popup ve bildirimleri devre dışı bırak
+            options.add_experimental_option("prefs", {
+                "credentials_enable_service": False,
+                "profile.password_manager_enabled": False
+            })
+            options.add_argument("--disable-blink-features=AutomationControlled")
+            
             service = Service(ChromeDriverManager().install())
             driver = webdriver.Chrome(service=service, options=options)
             return driver

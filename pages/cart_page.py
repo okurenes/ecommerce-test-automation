@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+import time
 
 class CartPage(BasePage):
     """Sepet sayfası için Page Object"""
@@ -15,7 +16,10 @@ class CartPage(BasePage):
     
     def get_cart_items_count(self):
         """Sepetteki ürün sayısını döner"""
-        return len(self.find_elements(self.CART_ITEMS))
+        try:
+            return len(self.find_elements(self.CART_ITEMS))
+        except:
+            return 0
     
     def proceed_to_checkout(self):
         """Checkout sayfasına ilerler"""
@@ -30,3 +34,4 @@ class CartPage(BasePage):
         buttons = self.find_elements(self.REMOVE_BUTTONS)
         if buttons:
             buttons[0].click()
+            time.sleep(1)  # Ürün çıkarılması için kısa bekleme

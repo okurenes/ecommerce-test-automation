@@ -21,3 +21,6 @@ reports/*.png
 # OS
 .DS_Store
 Thumbs.db
+
+# Chrome test profile
+chrome_profile/
