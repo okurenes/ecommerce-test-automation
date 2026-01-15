@@ -105,6 +105,10 @@ pytest -v
 
 Testler çalıştıktan sonra HTML raporu `reports/report.html` dosyasında oluşturulur.
 
+### Örnek Test Raporu:
+
+![Test Report](screenshots/test_report.png)
+
 Raporu görüntülemek için:
 ```bash
 open reports/report.html  # Mac
